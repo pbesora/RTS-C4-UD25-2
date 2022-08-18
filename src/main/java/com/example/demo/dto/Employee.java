@@ -2,8 +2,6 @@ package com.example.demo.dto;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -18,12 +16,11 @@ public class Employee {
 	
 	//Atributos de entidad cliente
 		@Id
-		@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
 		private String id;
 		@Column(name = "name")//no hace falta si se llama igual
 		private String name;
 		@Column(name = "surname")//no hace falta si se llama igual
-		private Double surname;
+		private String surname;
 		
 		@ManyToOne
 	    @JoinColumn(name="department")
@@ -43,7 +40,7 @@ public class Employee {
 		 * @param surname
 		 * @param department
 		 */
-		public Employee(String id, String name, Double surname, Department department) {
+		public Employee(String id, String name, String surname, Department department) {
 			this.id = id;
 			this.name = name;
 			this.surname = surname;
@@ -83,14 +80,14 @@ public class Employee {
 		/**
 		 * @return the surname
 		 */
-		public Double getSurname() {
+		public String getSurname() {
 			return surname;
 		}
 
 		/**
 		 * @param surname the surname to set
 		 */
-		public void setSurname(Double surname) {
+		public void setSurname(String surname) {
 			this.surname = surname;
 		}
 
